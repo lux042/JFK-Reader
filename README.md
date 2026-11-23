@@ -1,4 +1,4 @@
-# JFK Reader 📚
+# JFK Reader 
 
 **Explore the archive. Ask better questions.**
 
