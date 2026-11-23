@@ -2,7 +2,7 @@
 
 **Search and question-answering across archival JFK documents using Python, OCR, embeddings, and retrieval-augmented generation (RAG).**
 
-JFK Reader is a reconstructed and modernized version of an earlier archival research project. The original scripts, preserved in `legacy/` in the downloadable source archive, experimented with downloading National Archives JFK records, extracting scanned document text, summarizing files with OpenAI, and asking questions across multiple PDFs using LangChain and FAISS. This revision consolidates those ideas into a command-line application with page-aware retrieval and source references.
+JFK Reader is a reconstructed and modernized version of an earlier archival research project. The original scripts, preserved in [`legacy/`](legacy/), experimented with downloading National Archives JFK records, extracting scanned document text, summarizing files with OpenAI, and asking questions across multiple PDFs using LangChain and FAISS. This revision consolidates those ideas into a command-line application with page-aware retrieval and source references.
 
 > **Project status:** Reconstructed implementation. Automated unit tests are provided; live National Archives downloads, OpenAI responses, and OCR accuracy depend on external services and local setup and have not been end-to-end verified in this release.
 
@@ -105,7 +105,7 @@ tests/                Offline unit tests with mocked API calls
 pyproject.toml        Installable package and dependencies
 ```
 
-The original scripts are preserved separately in the downloadable full project archive, and will be added to `legacy/` in a subsequent commit.
+`legacy/`               Original recovered scripts (historical reference only)
 
 ## Development
 
