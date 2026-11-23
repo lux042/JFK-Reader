@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jfk-reader"
+version = "1.0.0"
+description = "JFK archival PDF research assistant with retrieval-augmented Q&A"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "openai>=1.30,<3",
+  "pypdf>=4,<7",
+  "numpy>=1.24,<3",
+  "python-dotenv>=1,<2",
+  "requests>=2.31,<3",
+  "beautifulsoup4>=4.12,<5",
+]
+
+[project.optional-dependencies]
+ocr = ["pymupdf>=1.24,<2", "pytesseract>=0.3.10,<1", "Pillow>=10,<13"]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+jfk-reader = "jfk_reader.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["jfk_reader*"]
