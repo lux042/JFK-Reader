@@ -1,10 +1,23 @@
-# JFK Reader
+# JFK Reader 📚
 
-**Search and question-answering across archival JFK documents using Python, OCR, embeddings, and retrieval-augmented generation (RAG).**
+**Explore the archive. Ask better questions.**
+
+A Python-based archival research tool for collecting, searching, and asking questions across declassified JFK records using **PDF text extraction, optional OCR, embeddings, and retrieval-augmented generation (RAG)**.
 
 JFK Reader is a reconstructed and modernized version of an earlier archival research project. The original scripts, preserved in [`legacy/`](legacy/), experimented with downloading National Archives JFK records, extracting scanned document text, summarizing files with OpenAI, and asking questions across multiple PDFs using LangChain and FAISS. This revision consolidates those ideas into a command-line application with page-aware retrieval and source references.
 
 > **Project status:** Reconstructed implementation. Automated unit tests are provided; live National Archives downloads, OpenAI responses, and OCR accuracy depend on external services and local setup and have not been end-to-end verified in this release.
+
+## At a glance
+
+| | |
+| --- | --- |
+| **Language** | Python 3.10+ |
+| **Research material** | National Archives JFK records and locally supplied PDFs |
+| **Document processing** | PDF extraction, optional Tesseract OCR |
+| **Retrieval** | OpenAI embeddings and a local NumPy vector index |
+| **Interface** | Command-line questions and interactive research sessions |
+| **Output** | Answers with supporting PDF filenames and page references |
 
 ## Features
 
@@ -15,6 +28,14 @@ JFK Reader is a reconstructed and modernized version of an earlier archival rese
 - Retrieve relevant excerpts with cosine similarity and generate answers grounded in those excerpts.
 - Display source references (`[S1]`, `[S2]`) with original PDF filenames and page numbers.
 - Ask one-off questions or start an interactive Terminal session.
+
+## Research workflow
+
+1. **Collect:** Download linked National Archives records or supply your own PDFs.
+2. **Extract:** Read PDF text and optionally apply OCR to scanned pages.
+3. **Index:** Create page-aware chunks and a searchable vector index.
+4. **Investigate:** Ask questions and retrieve relevant document passages.
+5. **Verify:** Follow the cited filenames and page numbers back to the original records.
 
 ## Quick start
 
@@ -71,6 +92,12 @@ JFK Reader > exit
 ```
 
 Responses cite retrieved excerpts with `[S1]` etc., followed by a list of source filenames and page numbers. These are **retrieval references**, not a guarantee that the answer is historically accurate. Check original records before drawing conclusions.
+
+## Technology stack
+
+**Python · PyMuPDF · Tesseract (optional) · OpenAI API · NumPy · pytest**
+
+The application separates document acquisition, extraction, indexing, and question-answering so each stage can be tested and improved independently.
 
 ## Architecture
 
@@ -134,6 +161,23 @@ The recovered original scripts are **not** part of the supported runtime and may
 - This is a research aid, not a definitive source for historical claims.
 - Live functionality requires network access, a valid OpenAI key, and compatible upstream APIs.
 - No authentication or multi-user deployment is included; the app is intended for local command-line use.
+
+## Roadmap
+
+- [x] Reconstruct the original archival research experiments into a Python CLI
+- [x] Download linked records with bounded requests and file validation
+- [x] Extract text with page references and optional OCR
+- [x] Build a local vector index and provide source-grounded Q&A
+- [x] Include automated offline unit tests
+- [ ] Validate the complete workflow against live National Archives downloads and API responses
+- [ ] Evaluate OCR quality on a representative collection of scanned documents
+- [ ] Add real terminal output examples or a short demo
+- [ ] Explore more scalable indexing for larger document collections
+
+## Related projects
+
+- **[sunBEAR](https://github.com/lux042/sunBEAR)** — a separate cross-platform research software project.
+- **[Pocket sunBEAR](https://github.com/lux042/pocket-sunBEAR)** — an iOS companion for collecting and exporting research metadata from multiple sources.
 
 ## License
 
